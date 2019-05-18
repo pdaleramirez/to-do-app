@@ -15,4 +15,10 @@ Route::get('/to-do', function () {
     return view('to-do-list');
 });
 
+Route::get('/email-checker', function () {
+    return view('email-checker');
+});
+
+Route::post('email-checker-process', 'EmailCheckerController@processDomains');
+
 Route::apiResource('to-do-list', 'ToDoController');
