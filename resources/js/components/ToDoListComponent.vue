@@ -63,7 +63,10 @@
             },
             markComplete(todo) {
                 todo.completed = !todo.completed;
-
+                axios.put('/to-do-list/'+todo.id, todo)
+                    .then(({data}) => {
+                        console.log(data);
+                    });
             },
             remove(details) {
                 const self = this;

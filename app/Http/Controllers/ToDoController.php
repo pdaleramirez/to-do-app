@@ -82,9 +82,10 @@ class ToDoController extends Controller
      * @param  \App\Model\ToDo  $toDo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ToDo $toDo)
+    public function update($id, Todo $toDoInput, Request $request)
     {
-
+        $toDo = ToDo::find($id);
+        $toDo->update($request->all());
     }
 
     /**

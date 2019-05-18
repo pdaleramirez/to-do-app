@@ -1830,6 +1830,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     markComplete: function markComplete(todo) {
       todo.completed = !todo.completed;
+      axios.put('/to-do-list/' + todo.id, todo).then(function (_ref2) {
+        var data = _ref2.data;
+        console.log(data);
+      });
     },
     remove: function remove(details) {
       var self = this;
@@ -1839,8 +1843,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     getToDos: function getToDos() {
       var self = this;
-      axios.get('/to-do-list').then(function (_ref2) {
-        var data = _ref2.data;
+      axios.get('/to-do-list').then(function (_ref3) {
+        var data = _ref3.data;
         self.todos = data;
       });
     }
@@ -49595,8 +49599,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\todo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\todo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\to-do-app\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\to-do-app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
