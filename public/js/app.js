@@ -37226,11 +37226,46 @@ var render = function() {
                   { key: todo.id, staticClass: "items-center" },
                   [
                     _c("input", {
-                      staticClass: "d-inline-block",
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: todo.completed,
+                          expression: "todo.completed"
+                        }
+                      ],
+                      class: _vm.d - _vm.inline - _vm.block,
                       attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(todo.completed)
+                          ? _vm._i(todo.completed, null) > -1
+                          : todo.completed
+                      },
                       on: {
                         click: function($event) {
                           return _vm.markComplete(todo)
+                        },
+                        change: function($event) {
+                          var $$a = todo.completed,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(todo, "completed", $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  todo,
+                                  "completed",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(todo, "completed", $$c)
+                          }
                         }
                       }
                     }),

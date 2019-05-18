@@ -17,7 +17,7 @@
                             <li  v-for="error in errors">{{ error[0] }}</li>
                         </ul>
                         <div class="items-center" v-for="(todo, index) in todos" :key="todo.id">
-                            <input type="checkbox" class="d-inline-block" @click="markComplete(todo)">
+                            <input type="checkbox" v-model="todo.completed" :class="d-inline-block" @click="markComplete(todo)">
                             <p class="d-inline-block"
                                :class="todo.completed ? 'strike-through' : ''">
                                 {{todo.description}}
