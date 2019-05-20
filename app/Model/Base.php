@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Base
  * @package App\Model
  */
-class Base extends Model
+abstract class Base extends Model
 {
     /**
      * Add validation rules here
